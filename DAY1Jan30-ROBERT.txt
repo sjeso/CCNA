@@ -126,11 +126,19 @@ Int Fa 0/7
   switchport mode access
   switchport access vlan 100    
  end
- 
-!!cisco unified call manager Express command
-!@@@CUCM-M
+
 config t
-   hostname CUCM-_
+ip dhcp pool CAMERA6
+host 10.41.50.6 255.255.255.0
+client-identifier 001a.0706.c2fe
+ip dhcp pool CAMERA8
+host 10.41.50.8 255.255.255.0
+client-identifier 001a.0706.4929
+
+!!cisco unified call manager Express command
+!@@@CUCM-41
+config t
+   hostname CUCM-41
    enable secret pass
    service password-encryption
    no logging console
@@ -145,22 +153,22 @@ config t
       exec-timeout 0 0
    Int Fa 0/0
      no shutdown
-	 ip add 10._.100.8 255.255.255.0 
+	 ip add 10.41.100.8 255.255.255.0 
 	 end
    
 !!!CUCM ANALOG PHONES CONFIG
 configure terminal
 dial-peer voice 1 pots
-   destination-pattern _00
+   destination-pattern 4100
    port 0/0/0
 dial-peer voice 2 pots
-   destination-pattern _01
+   destination-pattern 4101
    port 0/0/1
 dial-peer voice 3 pots
-   destination-pattern _02
+   destination-pattern 4102
    port 0/0/2
 dial-peer voice 4 pots
-   destination-pattern _03
+   destination-pattern 4103
    port 0/0/3
 end
 
