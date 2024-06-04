@@ -32,7 +32,7 @@ config t
 
 !@@@LeafSwitchONLY
 config t
-   hostname COREbaba_
+   hostname COREbaba41
    enable secret pass
    service password-encryption
    no logging console
@@ -65,7 +65,11 @@ config t
      no shutdown
 	 ip add 10.41.100.4 255.255.255.0
 	 description VOICEVLAN
-	 
+
+config t
+ip routing
+ip route 0.0.0.0 0.0.0.0 10.41.41.1
+
 !DHCP: DYNAMIC HOST CONFIGURATION PROTOCOL
 !@@@LEAF SWITCH
 config t
@@ -296,6 +300,10 @@ dial-peer voice 82 Voip
  destination-pattern 82..
  session target ipv4:10.82.100.8
  codec g711ULAW
+
+config t
+ip routing
+ip route 0.0.0.0 0.0.0.0 10.41.100.4
 
 @@@@@@
 !@@@EDGE ROUTE CONFIG
