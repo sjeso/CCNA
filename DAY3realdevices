@@ -26,6 +26,11 @@ CONFIGURING OSPF AND EIRGP IN REAL WORLD DEVICE, NOT VIRTUAL
       no auto-summary
       network 10.41.41.0 0.0.0.255
 
+!!EIGRP if working
+  show ip eigrp neighbor
+  show ip eigrp topology
+  show ip route eigrp
+
   !!@Edge eigrp(internal) and ospf(external)
        config t
        router ospf 1
@@ -33,4 +38,36 @@ CONFIGURING OSPF AND EIRGP IN REAL WORLD DEVICE, NOT VIRTUAL
        network 200.0.0.0 0.0.0.255 area 0
        network 41.0.0.1 0.0.0.255 area 0
 
-      
+!!Task 6: routing redistribution  
+
+step1: Get seed Metric
+  OSPF(open) and EIGRP(very racist like koreans) dont like mix other!
+
+sh ip protocols
+show ip eigrp neighbor
+
+EDGE41#show interface gi 0/0/0
+GigabitEthernet0/0/0 is up, line protocol is up 
+  Hardware is ISR4321-2x1GE, address is 70c9.c6ca.8790 (bia 70c9.c6ca.8790)
+  Description: INSIDE
+  Internet address is 10.41.41.1/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+
+k1 bandwidth = 1000000
+k2 delay = 1 (minus one 0)
+k3 rely = 255
+k4 load = 1
+k5 MTU = 1500
+
+
+#EDGE
+config t
+router ospf 1
+ redistribute eigrp 41 subnets
+router eigrp 41
+ redistribute ospf 1 Metric 1000000 1 255 1 1500
+
+
+TASK7: Fundamentals of Cybersecurity. ATTACK/DEFENSE.
+
