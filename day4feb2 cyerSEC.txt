@@ -19,6 +19,15 @@ net  use  \\10.k.1.10\ipc$  "attacks 139, and connects to it."
 "privilege escalation"
 net  use  s: \\10.k.1.10\c$  /user:administrator
 
+SERVICES vs PORTS
+web server run on port 80, if side port 80 open? it is a web server.
+Learn to run corporate website:
+
+cmd
+powershell
+New-website -name "wtf1" -hostheader "www.ngcp41.ph" -physicalPath "D:\webs\datingbiz"
+
+CMD
 net  use  s: \\10.k.1.10\c$
 
 TASK3: When you become a Security Analyst:
