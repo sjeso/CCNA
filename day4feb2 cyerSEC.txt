@@ -30,6 +30,59 @@ New-website -name "wtf1" -hostheader "www.ngcp41.ph" -physicalPath "D:\webs\dati
 CMD
 net  use  s: \\10.k.1.10\c$
 
+TASK1: Protectyour most important business asset
+Protect your people/IT staff vs Harm. Use power
+of Cisco Access List to block porn world.
+from entering your network.
+step1: give unlimited internet to EDGE
+@edge
+config t
+ip route 0.0.0.0 0.0.0.0 200.0.0.1
+ip name-server 8.8.8.8
+ip domain-lookup
+ALL THE PORN SITES THE WORLD ARE OWNED BY 5 COMPANIES:
+config t
+NO ip access-list standard NOPORN1
+ip access-list standard NOPORN1
+DENY 66.254.0.0 0.0.255.255
+DENY 104.21.0.0 0.0.255.255
+DENY 68.235.0.0 0.0.255.255
+DENY 66.254.0.0 0.0.255.255
+DENY 104.17.0.0 0.0.255.255
+DENY 88.208.0.0 0.0.255.255
+Permit Any
+Int Gi 0/0/1
+ ip access-group NOPORN1 in
+end
+
+task2: USE STANDARD ACCESS-LIST TO BLOCK OTHER CONTRIES/CLASSMATE: USONLY1
+config t
+ip route 0.0.0.0 0.0.0.0 200.0.0.1
+ip name-server 8.8.8.8
+ip domain-lookup
+ALL THE PORN SITES THE WORLD ARE OWNED BY 5 COMPANIES:
+config t
+NO ip access-list standard TREESOME
+ip access-list standard TREESOME
+DENY 10.11.0.0 0.0.255.255
+DENY 10.12.0.0 0.0.255.255
+DENY 10.21.0.0 0.0.255.255
+DENY 10.22.0.0 0.0.255.255
+DENY 10.31.0.0 0.0.255.255
+DENY 10.32.0.0 0.0.255.255
+DENY 10.42.0.0 0.0.255.255
+DENY 10.52.0.0 0.0.255.255
+DENY 10.62.0.0 0.0.255.255
+Permit Any
+Int Gi 0/0/1
+ ip access-group TREESOME in
+end
+
+NO ACL, CALL ALL, PING:
+Int Gi 0/0/1
+NO ip access-group TREESOME in
+end
+
 TASK3: When you become a Security Analyst:
 Learn to Block the IPaddress from 3 "BAD" countries:
 NorthKorea, RUSSIA, China.= where all the Best hackers live.
@@ -131,7 +184,7 @@ before: nmap -v 10.m.100.8
 @Cucm:
 config t
 int fa 0/0
- ip add 10.m.100.9 255.255.255.0 Secondary
+ ip add 10.41.100.9 255.255.255.0 Secondary
 service finger
 service tcp-small-servers
 service udp-small-servers
@@ -139,13 +192,15 @@ ip dns server
 ip http server
 ip http secure-server
 !Make Ping EASY
-ip host pc 10.m.1.10
-ip host cm 10.m.100.8
-ip host cm2 10.m.100.9
-ip host p1 10.m.100.101
-ip host p2 10.m.100.102
-ip host sw 10.m.1.4
-ip host ed 10.m.m.1
+ip host pc 10.41.1.10
+ip host cm 10.41.100.8
+ip host cm2 10.41.100.9
+ip host p1 10.41.100.101
+ip host p2 10.41.100.102
+ip host c6 10.41.50.6
+ip host c8 10.41.50.8
+ip host sw 10.41.1.4
+ip host ed 10.41.41.1
 
 TASK7: Enter the World of BlueTeam: Protect vs Redteam: Attack, 
 BlueTeam: UTM: unified Threat management:
@@ -158,6 +213,49 @@ Top 5 UTM: 1.FortinetFortigate:
            1.1: Palo Alto:superSuplado
            2. Checkpoint
            3.4 Cisco
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 TASK8: CONGigure YOur first Packet Filter Firewall.
  FORMULA: "  Protocol    hacker   victim  Port "
@@ -205,6 +303,21 @@ nmap -v cm       nmap -v cm2
 22               443
 2000             23
 80               53
+
+@CUCM
+config t
+NO IP access-list Extended fwpolicy2
+IP access-list Extended fwpolicy2
+ permit icmp Any host cm
+ permit Tcp Any host cm Eq 2000
+ permit Tcp Any host cm2 Eq 22
+permit Tcp Any host cm2 Eq 80
+ permit Tcp Any host cm2 Eq 79
+permit Tcp Any host cm2 Eq 53
+ do sh ip access-list fwpolicy2
+ Int Fa 0/0
+  ip access-group fwpolicy2 IN
+  end
 
 ex.2: Make a Firewall so that we can meet this fwpolicy3:
 cm is a ping,cucm/sccp,
