@@ -1,0 +1,36 @@
+CONFIGURING OSPF AND EIRGP IN REAL WORLD DEVICE, NOT VIRTUAL
+
+  task4: Configuring eigrp FOR ALL switches cms
+    and OSPF for edge cisco, fortinet,PA:
+
+    !!@cm
+     config t
+    router eigrp 41
+      no auto-summary
+      network 10.41.100.0 0.0.0.255
+
+   !!@coreBAba
+      config t
+    no router eigrp 100
+       router eigrp 41
+      no auto-summary
+      network 10.41.100.0 0.0.0.255
+      network 10.41.50.0 0.0.0.255
+      network 10.41.10.0 0.0.0.255
+      network 10.41.1.0 0.0.0.255
+      network 10.41.41.0 0.0.0.255
+
+    !!@eDGE
+      config t
+    router eigrp 41
+      no auto-summary
+      network 10.41.41.0 0.0.0.255
+
+  !!@Edge eigrp(internal) and ospf(external)
+       config t
+       router ospf 1
+       router-id 41.0.0.1
+       network 200.0.0.0 0.0.0.255 area 0
+       network 41.0.0.1 0.0.0.255 area 0
+
+      
