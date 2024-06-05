@@ -22,6 +22,7 @@ CONFIGURING OSPF AND EIRGP IN REAL WORLD DEVICE, NOT VIRTUAL
 
     !!@eDGE
       config t
+ip routing
     router eigrp 41
       no auto-summary
       network 10.41.41.0 0.0.0.255
