@@ -529,4 +529,35 @@ how to get certified:
 
 3. ask sa CHAT: "latest reivewer"
 
+--------------------------------------------------------------
+add me
 
+CCNA certified: Routing and Switching
+task1master switching:
+skill1: "master finger!" to jail break a switch
+	with forgotten password
+	
+step1: press Mode repeatedly, after 10sec:
+switch:
+		flash_init
+		dir flash:
+		rename flash:config.text flash:config.forget
+		dir flash:
+		boot
+
+
+Task 3: 3yrs switching in 3 hrs:
+sw expert? 
+5 super hero of switching
+
+802.1Q         802.1D            802.1W             802.1S           802.1X
+trunking        stp		  Rstp              MiSTP            portSecurity
+	    protect self	used all CPU
+	    every 2s
+
+ping a real IP address -> UNICAST -> only 1
+not a real IP -> it will find from broadcast -> BROADCAST -> FFFF -> all
+01-00-5e -> Multicast -> few
+
+
+Root Identifier: 32768 -> switch unprotected (default)
