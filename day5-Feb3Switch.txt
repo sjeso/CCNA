@@ -545,15 +545,28 @@ switch:
 		dir flash:
 		boot
 
+CCNA certified: Routing and Switching
+task1master switching:
+skill1: "master finger!" to jail break a switch
+	with forgotten password
+	
+step1: press Mode repeatedly, after 10sec:
+switch:
+		flash_init
+		dir flash:
+		rename flash:config.text flash:config.forget
+		dir flash:
+		boot
 
+-------------------------------------------------------------------
 Task 3: 3yrs switching in 3 hrs:
 sw expert? 
 5 super hero of switching
 
 802.1Q         802.1D            802.1W             802.1S           802.1X
-trunking        stp		  Rstp              MiSTP            portSecurity
-	    protect self	used all CPU
-	    every 2s
+trunking        stp				  Rstp              MiSTP            portSecurity
+			protect self	faster protection	 used all CPU 
+			   every 2s
 
 ping a real IP address -> UNICAST -> only 1
 not a real IP -> it will find from broadcast -> BROADCAST -> FFFF -> all
@@ -561,3 +574,38 @@ not a real IP -> it will find from broadcast -> BROADCAST -> FFFF -> all
 
 
 Root Identifier: 32768 -> switch unprotected (default)
+
+
+
+
+
+DAY 5
+
+Task 1: Skill gaps
+
+training vs real world :
+
+know your network = key to maintaining/building
+cant fix what u dont know
+
+show cdp neighbors = all cisco
+sho lldp neighbors = any brand
+
+access your sw to map the diagram
+
+sh vlan br
+
+sh mac address-table
+
+mac starting 001a -> made from USA
+
+
+if protected
+sh port-security address
+
+
+
+
+CUCM-41# sh dial-peer voice summary  !!! check ip
+
+
